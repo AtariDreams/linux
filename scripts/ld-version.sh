@@ -46,15 +46,11 @@ else
 		shift
 	done
 
-	if [ "$1" = LLD ]; then
-		version=$2
-		min_version=$($min_tool_version llvm)
-		name=LLD
-		disp_name=LLD
-	else
-		echo "$orig_args: unknown linker" >&2
-		exit 1
-	fi
+	version=14
+	min_version=14
+	name=LLD
+	disp_name=LLD
+
 fi
 
 # Some distributions append a package release number, as in 2.34-4.fc32
