@@ -4333,7 +4333,7 @@ static int __init amd64_edac_init(void)
 		return -EBUSY;
 
 	owner = edac_get_owner();
-	if (owner && strncmp(owner, EDAC_MOD_STR, sizeof(EDAC_MOD_STR)))
+	if (owner && strncmp(owner, EDAC_MOD_STR, sizeof(EDAC_MOD_STR) - 1))
 		return -EBUSY;
 
 	if (!x86_match_cpu(amd64_cpuids))

@@ -2968,7 +2968,7 @@ static void identify_by_eeprom(struct bttv *btv, unsigned char eeprom_data[256])
 
 	if (0 == strncmp(eeprom_data,"GET MM20xPCTV",13))
 		type = BTTV_BOARD_MODTEC_205;
-	else if (0 == strncmp(eeprom_data+20,"Picolo",7))
+	else if (0 == strncmp(eeprom_data + 20, "Picolo", 6))
 		type = BTTV_BOARD_EURESYS_PICOLO;
 	else if (eeprom_data[0] == 0x84 && eeprom_data[2]== 0)
 		type = BTTV_BOARD_HAUPPAUGE; /* old bt848 */

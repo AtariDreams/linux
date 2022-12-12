@@ -912,7 +912,7 @@ liquidio_probe(struct pci_dev *pdev, const struct pci_device_id __maybe_unused *
 static bool fw_type_is_auto(void)
 {
 	return strncmp(fw_type, LIO_FW_NAME_TYPE_AUTO,
-		       sizeof(LIO_FW_NAME_TYPE_AUTO)) == 0;
+		       sizeof(LIO_FW_NAME_TYPE_AUTO) - 1) == 0;
 }
 
 /**
