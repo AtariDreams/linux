@@ -1275,7 +1275,7 @@ static int __init igen6_init(void)
 		return -EBUSY;
 
 	owner = edac_get_owner();
-	if (owner && strncmp(owner, EDAC_MOD_STR, sizeof(EDAC_MOD_STR)))
+	if (owner && strncmp(owner, EDAC_MOD_STR, sizeof(EDAC_MOD_STR) - 1))
 		return -EBUSY;
 
 	edac_op_state = EDAC_OPSTATE_NMI;

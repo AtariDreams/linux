@@ -94,12 +94,12 @@ static int __init sr_init_by_name(const char *name, const char *voltdm)
 	struct omap_volt_data *volt_data;
 	static int i;
 
-	if (!strncmp(name, "smartreflex_mpu_iva", 20) ||
-	    !strncmp(name, "smartreflex_mpu", 16))
+	if (!strncmp(name, "smartreflex_mpu_iva", 19) ||
+	    !strncmp(name, "smartreflex_mpu", 15))
 		sr_data = &omap_sr_pdata[OMAP_SR_MPU];
-	else if (!strncmp(name, "smartreflex_core", 17))
+	else if (!strncmp(name, "smartreflex_core", 16))
 		sr_data = &omap_sr_pdata[OMAP_SR_CORE];
-	else if (!strncmp(name, "smartreflex_iva", 16))
+	else if (!strncmp(name, "smartreflex_iva", 15))
 		sr_data = &omap_sr_pdata[OMAP_SR_IVA];
 
 	if (!sr_data) {
