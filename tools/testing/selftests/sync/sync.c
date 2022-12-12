@@ -75,7 +75,7 @@ int sync_merge(const char *name, int fd1, int fd2)
 	data.name[sizeof(data.name) - 1] = '\0';
 
 	err = ioctl(fd1, SYNC_IOC_MERGE, &data);
-	if (err < 0)
+	if (err)
 		return err;
 
 	return data.fence;
@@ -92,7 +92,7 @@ static struct sync_file_info *sync_file_info(int fd)
 		return NULL;
 
 	err = ioctl(fd, SYNC_IOC_FILE_INFO, info);
-	if (err < 0) {
+	if (err) {
 		free(info);
 		return NULL;
 	}
@@ -112,7 +112,7 @@ static struct sync_file_info *sync_file_info(int fd)
 		info->sync_fence_info = (uint64_t)(unsigned long)fence_info;
 
 		err = ioctl(fd, SYNC_IOC_FILE_INFO, info);
-		if (err < 0) {
+		if (err) {
 			free(fence_info);
 			free(info);
 			return NULL;
@@ -202,7 +202,7 @@ int sw_sync_fence_create(int fd, const char *name, unsigned int value)
 	data.name[sizeof(data.name) - 1] = '\0';
 
 	err = ioctl(fd, SW_SYNC_IOC_CREATE_FENCE, &data);
-	if (err < 0)
+	if (err)
 		return err;
 
 	return data.fence;

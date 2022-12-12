@@ -495,7 +495,7 @@ TEST(epoll9)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -538,7 +538,7 @@ TEST(epoll10)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -585,7 +585,7 @@ TEST(epoll11)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -634,7 +634,7 @@ TEST(epoll12)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -679,7 +679,7 @@ TEST(epoll13)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -722,7 +722,7 @@ TEST(epoll14)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -769,7 +769,7 @@ TEST(epoll15)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -818,7 +818,7 @@ TEST(epoll16)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1223,7 +1223,7 @@ TEST(epoll25)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1275,7 +1275,7 @@ TEST(epoll26)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1327,7 +1327,7 @@ TEST(epoll27)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1379,7 +1379,7 @@ TEST(epoll28)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1431,7 +1431,7 @@ TEST(epoll29)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1482,7 +1482,7 @@ TEST(epoll30)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1533,7 +1533,7 @@ TEST(epoll31)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1584,7 +1584,7 @@ TEST(epoll32)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 1);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1635,7 +1635,7 @@ TEST(epoll33)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1687,7 +1687,7 @@ TEST(epoll34)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1739,7 +1739,7 @@ TEST(epoll35)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1791,7 +1791,7 @@ TEST(epoll36)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1848,7 +1848,7 @@ TEST(epoll37)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1905,7 +1905,7 @@ TEST(epoll38)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -1962,7 +1962,7 @@ TEST(epoll39)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2019,7 +2019,7 @@ TEST(epoll40)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2071,7 +2071,7 @@ TEST(epoll41)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2123,7 +2123,7 @@ TEST(epoll42)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2175,7 +2175,7 @@ TEST(epoll43)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2227,7 +2227,7 @@ TEST(epoll44)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2284,7 +2284,7 @@ TEST(epoll45)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2336,7 +2336,7 @@ TEST(epoll46)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2393,7 +2393,7 @@ TEST(epoll47)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2445,7 +2445,7 @@ TEST(epoll48)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_TRUE((ctx.count == 2) || (ctx.count == 3));
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2739,7 +2739,7 @@ TEST(epoll53)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2804,7 +2804,7 @@ TEST(epoll54)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2869,7 +2869,7 @@ TEST(epoll55)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -2934,7 +2934,7 @@ TEST(epoll56)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -3004,7 +3004,7 @@ TEST(epoll57)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -3074,7 +3074,7 @@ TEST(epoll58)
 	ASSERT_EQ(pthread_join(ctx.waiter, NULL), 0);
 	EXPECT_EQ(ctx.count, 2);
 
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}
@@ -3144,7 +3144,7 @@ TEST(epoll59)
 			;
 		ctx.count = 1;
 	}
-	if (pthread_tryjoin_np(emitter, NULL) < 0) {
+	if (pthread_tryjoin_np(emitter, NULL)) {
 		pthread_kill(emitter, SIGUSR1);
 		pthread_join(emitter, NULL);
 	}

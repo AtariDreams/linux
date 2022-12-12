@@ -465,7 +465,7 @@ static void start_thread(struct thread *t)
 {
 	debug("%s: starting\n", t->filename);
 
-	die_on(pthread_create(&t->id, NULL, start_thread_helper, t) < 0,
+	die_on(pthread_create(&t->id, NULL, start_thread_helper, t),
 	       "pthread_create(%s)", t->filename);
 }
 
@@ -473,7 +473,7 @@ static void join_thread(struct thread *t)
 {
 	int ret = pthread_join(t->id, NULL);
 
-	if (ret < 0)
+	if (ret)
 		err("%s: joining thread", t->filename);
 	else
 		debug("%s: joined\n", t->filename);

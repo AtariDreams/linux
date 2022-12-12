@@ -121,7 +121,7 @@ static void setup_symlink(void)
 		die("creat failed: %s\n", strerror(errno));
 
 	err = symlink(DATA, LINK);
-	if (err < 0)
+	if (err)
 		die("symlink failed: %s\n", strerror(errno));
 
 	if (close(data) != 0)

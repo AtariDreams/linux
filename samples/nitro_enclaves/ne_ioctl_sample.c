@@ -805,7 +805,7 @@ int main(int argc, char *argv[])
 	printf("Enclave fd %d\n", enclave_fd);
 
 	rc = pthread_create(&thread_id, NULL, ne_poll_enclave_fd, (void *)&enclave_fd);
-	if (rc < 0) {
+	if (rc) {
 		printf("Error in thread create [%m]\n");
 
 		close(enclave_fd);

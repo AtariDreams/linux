@@ -103,13 +103,13 @@ static int check_itimer(int which)
 		signal(SIGALRM, sig_handler);
 
 	err = gettimeofday(&start, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't call gettimeofday()\n");
 		return -1;
 	}
 
 	err = setitimer(which, &val, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't set timer\n");
 		return -1;
 	}
@@ -122,7 +122,7 @@ static int check_itimer(int which)
 		idle_loop();
 
 	err = gettimeofday(&end, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't call gettimeofday()\n");
 		return -1;
 	}
@@ -154,20 +154,20 @@ static int check_timer_create(int which)
 
 	done = 0;
 	err = timer_create(which, NULL, &id);
-	if (err < 0) {
+	if (err) {
 		perror("Can't create timer\n");
 		return -1;
 	}
 	signal(SIGALRM, sig_handler);
 
 	err = gettimeofday(&start, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't call gettimeofday()\n");
 		return -1;
 	}
 
 	err = timer_settime(id, 0, &val, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't set timer\n");
 		return -1;
 	}
@@ -175,7 +175,7 @@ static int check_timer_create(int which)
 	user_loop();
 
 	err = gettimeofday(&end, NULL);
-	if (err < 0) {
+	if (err) {
 		perror("Can't call gettimeofday()\n");
 		return -1;
 	}
