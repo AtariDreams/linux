@@ -174,9 +174,9 @@ static void use_config(const char *m, int slen)
 }
 
 /* test if s ends in sub */
-static int str_ends_with(const char *s, int slen, const char *sub)
+static int str_ends_with(const char *s, size_t slen, const char *sub)
 {
-	int sublen = strlen(sub);
+	size_t sublen = strlen(sub);
 
 	if (sublen > slen)
 		return 0;
@@ -241,7 +241,7 @@ static void *read_file(const char *filename)
 }
 
 /* Ignore certain dependencies */
-static int is_ignored_file(const char *s, int len)
+static int is_ignored_file(const char *s, size_t len)
 {
 	return str_ends_with(s, len, "include/generated/autoconf.h") ||
 	       str_ends_with(s, len, "include/generated/autoksyms.h");
