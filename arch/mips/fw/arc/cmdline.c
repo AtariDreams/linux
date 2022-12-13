@@ -47,7 +47,7 @@ static char __init *move_firmware_args(int argc, LONG *argv, char *cp)
 
 	while (actr < argc) {
 		for(i = 0; i < ARRAY_SIZE(used_arc); i++) {
-			int len = strlen(used_arc[i][0]);
+			size_t len = strlen(used_arc[i][0]);
 
 			if (!strncmp(prom_argv(actr), used_arc[i][0], len)) {
 			/* Ok, we want it. First append the replacement... */
@@ -86,7 +86,7 @@ void __init prom_init_cmdline(int argc, LONG *argv)
 
 	while (actr < argc) {
 		for (i = 0; i < ARRAY_SIZE(ignored); i++) {
-			int len = strlen(ignored[i]);
+			size_t len = strlen(ignored[i]);
 
 			if (!strncmp(prom_argv(actr), ignored[i], len))
 				goto pic_cont;

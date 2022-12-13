@@ -227,7 +227,7 @@ static void vfp_raise_sigfpe(unsigned int sicode, struct pt_regs *regs)
 
 static void vfp_panic(char *reason, u32 inst)
 {
-	int i;
+	unsigned i;
 
 	pr_err("VFP: Error: %s\n", reason);
 	pr_err("VFP: EXC 0x%08x SCR 0x%08x INST 0x%08x\n",
@@ -700,7 +700,7 @@ static struct undef_hook vfp_kmode_exception_hook[] = {{
 
 static int __init vfp_kmode_exception_hook_init(void)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < ARRAY_SIZE(vfp_kmode_exception_hook); i++)
 		register_undef_hook(&vfp_kmode_exception_hook[i]);

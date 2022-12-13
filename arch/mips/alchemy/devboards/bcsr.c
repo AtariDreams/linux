@@ -28,7 +28,7 @@ static int bcsr_csc_base;	/* linux-irq of first cascaded irq */
 
 void __init bcsr_init(unsigned long bcsr1_phys, unsigned long bcsr2_phys)
 {
-	int i;
+	unsigned i;
 
 	bcsr1_phys = KSEG1ADDR(CPHYSADDR(bcsr1_phys));
 	bcsr2_phys = KSEG1ADDR(CPHYSADDR(bcsr2_phys));
