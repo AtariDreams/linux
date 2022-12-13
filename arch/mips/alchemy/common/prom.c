@@ -111,7 +111,7 @@ static inline unsigned char str2hexnum(unsigned char c)
 
 static inline void str2eaddr(unsigned char *ea, unsigned char *str)
 {
-	int i;
+	unsigned i;
 
 	for (i = 0; i < 6; i++) {
 		unsigned char num;

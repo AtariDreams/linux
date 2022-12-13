@@ -64,7 +64,7 @@ static int rs_write(struct tty_struct * tty,
 static void rs_poll(struct timer_list *unused)
 {
 	struct tty_port *port = &serial_port;
-	int i = 0;
+	size_t i = 0;
 	int rd = 1;
 	unsigned char c;
 
@@ -192,7 +192,7 @@ late_initcall(rs_init);
 static void iss_console_write(struct console *co, const char *s, unsigned count)
 {
 	if (s && *s != 0) {
-		int len = strlen(s);
+		size_t len = strlen(s);
 		simc_write(1, s, count < len ? count : len);
 	}
 }

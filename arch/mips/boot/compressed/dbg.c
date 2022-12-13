@@ -25,13 +25,9 @@ void puts(const char *s)
 
 void puthex(unsigned long long val)
 {
-
-	unsigned char buf[10];
-	int i;
-	for (i = 7; i >= 0; i--) {
-		buf[i] = "0123456789ABCDEF"[val & 0x0F];
-		val >>= 4;
-	}
-	buf[8] = '\0';
-	puts(buf);
+    char buf[9];
+    size_t i = sizeof(buf) - 1;
+    for (buf[i] = '\0'; i; val >>= 4)
+        buf[--i] = "0123456789ABCDEF"[val & 0xF];
+    puts(buf);
 }

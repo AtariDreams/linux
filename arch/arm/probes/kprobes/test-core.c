@@ -723,9 +723,9 @@ static const char coverage_register_lookup[16] = {
 unsigned coverage_start_registers(const struct decode_header *h)
 {
 	unsigned regs = 0;
-	int i;
+	unsigned i;
 	for (i = 0; i < 20; i += 4) {
-		int r = (h->type_regs.bits >> (DECODE_TYPE_BITS + i)) & 0xf;
+		unsigned r = (h->type_regs.bits >> (DECODE_TYPE_BITS + i)) & 0xf;
 		regs |= coverage_register_lookup[r] << i;
 	}
 	return regs;
@@ -774,12 +774,12 @@ static int coverage_start(const union decode_item *table)
 static void
 coverage_add_registers(struct coverage_entry *entry, kprobe_opcode_t insn)
 {
-	int regs = entry->header->type_regs.bits >> DECODE_TYPE_BITS;
+	u32 regs = entry->header->type_regs.bits >> DECODE_TYPE_BITS;
 	int i;
 	for (i = 0; i < 20; i += 4) {
 		enum decode_reg_type reg_type = (regs >> i) & 0xf;
 		int reg = (insn >> i) & 0xf;
-		int flag;
+		unsigned flag;
 
 		if (!reg_type)
 			continue;

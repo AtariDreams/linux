@@ -117,7 +117,7 @@ static unsigned long initial_pmd_value __initdata = 0;
  */
 void __init init_default_cache_policy(unsigned long pmd)
 {
-	int i;
+	unsigned i;
 
 	initial_pmd_value = pmd;
 
@@ -140,20 +140,22 @@ void __init init_default_cache_policy(unsigned long pmd)
  */
 static int __init early_cachepolicy(char *p)
 {
-	int i, selected = -1;
+	size_t i, selected = 0;
 
 	for (i = 0; i < ARRAY_SIZE(cache_policies); i++) {
-		int len = strlen(cache_policies[i].policy);
+		size_t len = strlen(cache_policies[i].policy);
 
 		if (memcmp(p, cache_policies[i].policy, len) == 0) {
 			selected = i;
-			break;
+			goto no_err;
 		}
 	}
 
-	if (selected == -1)
-		pr_err("ERROR: unknown or unsupported cache policy\n");
+	pr_err("ERROR: unknown or unsupported cache policy\n");
 
+no_err:
+	if (selected != cachepolicy) {
+		unsigned long cr;
 	/*
 	 * This restriction is partly to do with the way we boot; it is
 	 * unpredictable to have memory mapped using two different sets of
@@ -161,14 +163,12 @@ static int __init early_cachepolicy(char *p)
 	 * change these attributes once the initial assembly has setup the
 	 * page tables.
 	 */
-	if (cpu_architecture() >= CPU_ARCH_ARMv6 && selected != cachepolicy) {
-		pr_warn("Only cachepolicy=%s supported on ARMv6 and later\n",
-			cache_policies[cachepolicy].policy);
-		return 0;
-	}
-
-	if (selected != cachepolicy) {
-		unsigned long cr = __clear_cr(cache_policies[selected].cr_mask);
+		if (cpu_architecture() >= CPU_ARCH_ARMv6) {
+			pr_warn("Only cachepolicy=%s supported on ARMv6 and later\n",
+				cache_policies[cachepolicy].policy);
+			return 0;
+		}
+		cr = __clear_cr(cache_policies[selected].cr_mask);
 		cachepolicy = selected;
 		flush_cache_all();
 		set_cr(cr);
@@ -445,7 +445,7 @@ static void __init build_mem_type_table(void)
 	unsigned int cr = get_cr();
 	pteval_t user_pgprot, kern_pgprot, vecs_pgprot;
 	int cpu_arch = cpu_architecture();
-	int i;
+	size_t i;
 
 	if (cpu_arch < CPU_ARCH_ARMv6) {
 #if defined(CONFIG_CPU_DCACHE_DISABLE)

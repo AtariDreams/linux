@@ -144,7 +144,7 @@ static void __init add_adam2_var(char *name, char *value)
 
 static int __init parse_psp_env(void *psp_env_base)
 {
-	int i, n;
+	unsigned i, n;
 	char *name, *value;
 	struct psp_env_chunk *chunks = (struct psp_env_chunk *)psp_env_data;
 
@@ -171,7 +171,7 @@ static int __init parse_psp_env(void *psp_env_base)
 
 static void __init ar7_init_env(struct env_var *env)
 {
-	int i;
+	unsigned i;
 	struct psbl_rec *psbl = (struct psbl_rec *)(KSEG1ADDR(0x14000300));
 	void *psp_env = (void *)KSEG1ADDR(psbl->env_base);
 

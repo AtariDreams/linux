@@ -809,7 +809,7 @@ static int alchemy_gpic_suspend(void)
 static void alchemy_gpic_resume(void)
 {
 	void __iomem *base = (void __iomem *)KSEG1ADDR(AU1300_GPIC_PHYS_ADDR);
-	int i;
+	u32 i;
 
 	/* disable all first */
 	__raw_writel(~0UL, base + AU1300_GPIC_IDIS + 0x0);

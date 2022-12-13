@@ -122,10 +122,10 @@ int __init db1x_register_pcmcia_socket(phys_addr_t pcmcia_attr_start,
 
 	i = 5;
 	if (stschg_irq) {
-		sr[i].name	= "stschg";
-		sr[i].flags	= IORESOURCE_IRQ;
-		sr[i].start = sr[i].end = stschg_irq;
-		i++;
+		sr[5].name	= "stschg";
+		sr[5].flags	= IORESOURCE_IRQ;
+		sr[5].start = sr[5].end = stschg_irq;
+		i = 6;
 	}
 	if (eject_irq) {
 		sr[i].name	= "eject";
